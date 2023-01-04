@@ -1,0 +1,71 @@
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('/resources/fonts/PlayfairDisplay-Regular.woff2') format('woff2'),
+        url('/resources/fonts/PlayfairDisplay-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('/resources/fonts/PlayfairDisplay-BoldItalic.woff2') format('woff2'),
+        url('/resources/fonts/PlayfairDisplay-BoldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('/resources/fonts/PlayfairDisplay-Bold.woff2') format('woff2'),
+        url('/resources/fonts/PlayfairDisplay-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('/resources/fonts/PlayfairDisplay-Italic.woff2') format('woff2'),
+        url('/resources/fonts/PlayfairDisplay-Italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Space Mono';
+    src: url('/resources/fonts/SpaceMono-Regular.woff2') format('woff2'),
+        url('/resources/fonts/SpaceMono-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Space Mono';
+    src: url('/resources/fonts/SpaceMono-Italic.woff2') format('woff2'),
+        url('/resources/fonts/SpaceMono-Italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Space Mono';
+    src: url('/resources/fonts/SpaceMono-Bold.woff2') format('woff2'),
+        url('/resources/fonts/SpaceMono-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Space Mono';
+    src: url('/resources/fonts/SpaceMono-BoldItalic.woff2') format('woff2'),
+        url('/resources/fonts/SpaceMono-BoldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+

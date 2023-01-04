@@ -1,0 +1,27 @@
+:root {
+  --light: 255,250,214;
+  --dark: 0,4,13;
+  --accent: 250,165,147;
+  --serif: 'Playfair Display', serif;
+  --mono: 'Space Mono', monospace;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+body {
+  background-color: rgb(var(--dark));
+  color: rgb(var(--light));
+  font-family: var(--mono);
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-variant-ligatures: none;
+}
+

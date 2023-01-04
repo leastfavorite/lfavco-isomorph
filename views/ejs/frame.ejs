@@ -1,0 +1,56 @@
+<%# takes css_modules, js_modules, title, inner %>
+<!DOCTYPE html>
+
+<!--
+    hey! it's cool that you're snooping through the code.
+    the main audience for this is not specifically programmers--
+    ideally i don't want to hide anything that's only available through
+    random probing or source code reading.
+    my hope is that you can respect that. you can check out the code if
+    you want, but i implore you to only hunt around in it as a last resort;
+    there is nothing here that you can't find through other means.
+    the most technical i'd ever have anyone get is maybe typing in a URL
+    by hand.
+    (for reference, the reason why the code is structured weirdly is that i'm
+    using EJS to preprocess a set of files, for organization purposes. i'll put
+    the source up publicly once rollout is done)
+    but as a reward for your snooping, here's a secret link:
+    https://lfav.co/i-peeked-at-the-html
+-->
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="icon" href="resources/favicons/favicon-32.png" sizes="32x32">
+    <link rel="icon" href="resources/favicons/favicon-128.png" sizes="128x128">
+    <link rel="icon" href="resources/favicons/favicon-180.png" sizes="180x180">
+    <link rel="icon" href="resources/favicons/favicon-192.png" sizes="192x192">
+    <title><%= title %></title>
+
+    <style>
+<% css_modules.forEach(function (m) { %>
+/* --- <%= m %>.css --- */
+
+<%- include(`../css/${m}.css`); %>
+<% }); %>
+    </style>
+
+  </head>
+  <body>
+
+<%- include(`${inner}.ejs`) %>
+
+    <script>
+<%_ js_modules.forEach(function (m) { _%>
+/* --- <%= m %>.js --- */
+
+<%- include(`../js/${m}.js`); %>
+<%_ }); _%>
+    </script>
+
+  </body>
+</html>
+

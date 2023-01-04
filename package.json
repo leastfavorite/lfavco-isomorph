@@ -1,0 +1,23 @@
+{
+  "name": "lfavco-isomorph",
+  "version": "1.0.0",
+  "description": "the iteration of lfav.co that shows isomorph and its stems",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leastfavorite/lfavco-isomorph.git"
+  },
+  "author": "aria favorite",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/leastfavorite/lfavco-isomorph/issues"
+  },
+  "homepage": "https://github.com/leastfavorite/lfavco-isomorph#readme",
+  "dependencies": {
+    "ejs": "^3.1.8",
+    "express": "^4.18.2"
+  }
+}

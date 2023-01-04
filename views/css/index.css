@@ -1,0 +1,236 @@
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+header {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;
+  overflow-y: clip;
+  background: radial-gradient(at top, transparent 0%, transparent 50%, rgba(var(--light), 0.15));
+  z-index: -100;
+}
+
+main {
+  background-color: rgb(var(--light));
+  margin: 0;
+  padding: 0;
+}
+
+header h1 {
+  font-family: var(--serif);
+  font-weight: bolder;
+  font-size: min(12.5vw, 7.5em);
+  margin: 0;
+  padding: 0;
+  text-shadow: 2px 0px 17px rgba(0, 0, 0, 0.8);
+}
+
+@keyframes sunflower {
+  from {
+    transform: translateY(-50%) rotate(0deg);
+  }
+  to {
+    transform: translateY(-50%) rotate(-360deg);
+  }
+}
+header .sunflower {
+  position: absolute;
+  z-index: -1;
+  max-height: 250%;
+  top: -35%;
+  animation: 120s linear infinite sunflower;
+}
+
+header .border {
+  object-fit: cover;
+  min-width: 100%;
+  max-width: 250%;
+  pointer-events: none;
+  transform: translateY(2px);
+}
+
+p {
+  color: rgb(var(--dark));
+}
+
+.links {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-width: 8em;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+}
+
+.links li a {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+header .links li a svg {
+  fill: rgb(var(--light));
+  height: min(calc(4vw + 1rem), 3rem);
+  transition: fill 0.5s;
+}
+
+main .links li a svg {
+  fill: rgb(var(--light));
+  height: 2rem;
+  width: 2rem;
+}
+
+main .links li a {
+  transition: background-color 0.5s;
+  padding: 0.25em;
+  background-color: rgba(var(--dark), 0.9);
+  border-radius: 4em;
+  box-shadow: 2px 0px 15px rgba(0, 0, 0, 0.3);
+}
+
+.cover-art {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+main .background-stripe {
+  position: absolute;
+  width: 150vw;
+  height: 60%;
+  max-height: 30rem;
+  top: 50%;
+  transform: translateY(-50%) rotate(-10deg);
+  background: linear-gradient(0deg, rgba(var(--accent), 0) 0%, rgba(var(--accent), 1) 20%, rgba(var(--accent), 1) 80%, rgba(var(--accent), 0) 100%);
+  pointer-events: none;
+}
+
+@keyframes flower-tile {
+  from {
+    background-position: 0% 0%;
+  }
+  to {
+    background-position: 200% 0%;
+  }
+}
+
+main .background-flower {
+  background-image: url("resources/images/flower_tile.png");
+  background-size: contain;
+  position: absolute;
+  height: 90%;
+  max-height: 40rem;
+  min-width: 110vw;
+  aspect-ratio: 1920 / 396;
+  top: 50%;
+  transform: translateY(-50%) rotate(-10deg);
+  animation: 30s linear infinite flower-tile;
+  pointer-events: none;
+}
+
+
+main .background-gradient {
+  width: 100em;
+  height: 100%;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, rgba(var(--light), 1) 0%, rgba(var(--light), 0) 10%, rgba(var(--light), 0) 90%, rgba(var(--light), 1) 100%);
+  z-index: 50;
+  position: absolute;
+  pointer-events: none;
+}
+
+main {
+  position: relative;
+  overflow: hidden;
+  flex-direction: column;
+  align-items: stretch;
+  display: flex;
+}
+
+main .cover {
+  margin: auto;
+  z-index: 100;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+main .cover img {
+  box-shadow: 2px 0px 30px 5px rgba(0, 0, 0, 0.4);
+  width: 100%;
+}
+
+main .container {
+  flex: 1;
+  box-sizing: border-box;
+  padding: 0 3em;
+}
+
+.section-header p {
+  font-size: 2rem;
+  font-style: italic;
+  text-align: center;
+  margin: 0;
+}
+
+.section-header h2 {
+  font-size: 5.5vw;
+  font-style: italic;
+  font-weight: normal;
+  text-align: center;
+  margin: 0;
+  color: rgb(var(--dark));
+}
+
+.section-header {
+  margin: 0.5em 0 1em 0;
+}
+
+main .link-container {
+  margin: 0.5em 0;
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 30rem;
+  padding: 0em 1em;
+}
+
+@media (min-width: 768px) {
+  .section-header h2 {
+    font-size: 2.2rem;
+  }
+
+  .section-header {
+    width: calc(30em + 20%);
+  }
+
+  main .link-container {
+    width: calc(30em + 20%);
+  }
+
+  main .container {
+    padding: 0 calc(40vw - 10rem);
+  }
+}

@@ -1,0 +1,84 @@
+<header>
+  <img class="sunflower" src="resources/images/sunflower.png"></img>
+  <div class="container">
+    <h1>leastfavorite!</h1>
+    <% links = []; %>
+    <% links.push({name: "twitter",      href: "https://twitter.com/leastfavorite_",    color: "#1DA1F2"}); %>
+    <% links.push({name: "instagram",    href: "https://instagram.com/least.favorite",  color: "#E95950"}); %>
+    <ul class="links">
+      <% links.forEach(function(link){ %>
+        <li>
+          <style>
+            .links #<%= link.name %>:hover svg {
+              fill: <%= link.color %>
+            }
+          </style>
+          <a id="<%= link.name %>" href="<%= link.href %>" target="_blank" rel="noopener noreferrer">
+            <%- include("../svg/" + link.name + ".svg"); %>
+          </a>
+        </li>
+      <% }); %>
+    </ul>
+  </div>
+  <img class="border" src="resources/images/banner_border.png"></img>
+</header>
+<main>
+  <div class="background-gradient"></div>
+  <div class="container">
+    <div class="section-header">
+      <h2>the debut ep. out now.</h2>
+    </div>
+    <div class="cover-art">
+      <div class="background-stripe"></div>
+      <div class="background-flower"></div>
+      <div class="cover">
+        <img src="resources/images/isomorph.jpg"></img>
+      </div>
+    </div>
+    <div class="link-container">
+      <% links = []; %>
+      <% links.push({name: "soundcloud", href: "https://soundcloud.com/leastfavorite/sets/isomorph",         color: "#ff7700"}); %>
+      <% links.push({name: "spotify",    href: "https://open.spotify.com/album/4g8UocVkKeBkpVqZFysKgX",      color: "#1DB954"}); %>
+      <% links.push({name: "apple",      href: "https://music.apple.com/us/album/isomorph-ep/1656605509",    color: "#FC3C44"}); %>
+      <% links.push({name: "bandcamp",   href: "https://lfav.bandcamp.com/album/isomorph",                   color: "#629AA9"}); %>
+      <ul class="links">
+        <% links.forEach(function(link){ %>
+          <li>
+            <style>
+              .links #<%= link.name %>:hover {
+                background-color: <%= link.color %>
+              }
+            </style>
+            <a id="<%= link.name %>" href="<%= link.href %>" target="_blank" rel="noopener noreferrer">
+              <%- include("../svg/" + link.name + ".svg"); %>
+            </a>
+          </li>
+        <% }); %>
+      </ul>
+    </div>
+    <div class="preview-container">
+      <div class="waveform-container">
+        <button type="button" aria-label="Play/Pause"></button>
+        <div id="waveform"></div>
+      </div>
+      <div class="now-playing"></div>
+      <div class="tracklist">
+        <% tracks = []; %>
+        <% tracks.push({name: "surround",  full: "surround."}); %>
+        <% tracks.push({name: "subject",   full: "subject, featuring jauntsen and polar."}); %>
+        <% tracks.push({name: "sequester", full: "sequester, featuring billy ! and bh."}); %>
+        <% tracks.push({name: "surrender", full: "surrender, with wishlane and Clovehitch."}); %>
+        <% tracks.push({name: "suspend",   full: "suspend, featuring saoirse dream."}); %>
+        <% tracks.push({name: "stasis",    full: "stasis, featuring dynastic."}); %>
+        <% tracks.forEach(function(track){ %>
+          <input type="radio" name="track" id="<%= track.name %>">
+          <label for="<%= track.name %>"><%= track.full %></label>
+        <% }); %>
+      </div>
+    </div>
+  </div>
+</main>
+<footer>
+  <%- include("../svg/logo.svg") %>
+  <p>© Langley Fairhardt Audiovisual. Some rights reserved. View source for this website <a href="https://github.com/leastfavorite/lfavco-isomorph">here</a>.</p>
+</footer>
