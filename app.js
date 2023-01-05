@@ -7,7 +7,7 @@ let peeked = JSON.parse(fs.readFileSync('peeked.json', 'utf8'));
 app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => { res.render('index'); });
-app.get('/chat', (req, res) => { res.render('chat'); });
+app.get('/stems', (req, res) => { res.render('stems'); });
 
 app.use('/resources', express.static('resources'));
 app.get('/resources/*', (req, res) => { res.status(404).send(""); }); 
