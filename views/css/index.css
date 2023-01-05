@@ -21,7 +21,6 @@ header {
   overflow-x: hidden;
   overflow-y: clip;
   background: radial-gradient(at top, transparent 0%, transparent 50%, rgba(var(--light), 0.15));
-  z-index: -100;
 }
 
 main {
@@ -217,7 +216,255 @@ main .link-container {
   padding: 0em 1em;
 }
 
+.waveform-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  align-items: stretch;
+  border-radius: 0.75em 0.75em 0 0;
+  overflow: hidden;
+  box-shadow: 0px 10px 15px -15px rgba(0, 0, 0, 0.5);
+}
+
+.waveform-container button {
+  width: 4.5em;
+  height: 4.5em;
+  background: rgb(var(--light));
+  border: none;
+  border-radius: 4em;
+  position: relative;
+  transition: background-color 0.3s;
+  cursor: pointer;
+}
+
+.waveform-container button:hover {
+  background: rgb(var(--accent));
+}
+
+.waveform-container button svg {
+  fill: rgb(var(--accent2));
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 3em;
+  height: 3em;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+
+.waveform-container button:not(.playing) svg.pause {
+  opacity: 0;
+}
+
+.waveform-container button.playing svg.play {
+  opacity: 0;
+}
+
+.waveform-controls {
+  display: flex;
+  width: 4.5em;
+  gap: 0.5em;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-around;
+  background: linear-gradient(-30deg, rgba(var(--accent2), 0.75), rgb(var(--accent2)));
+  padding: 1em 0.5em;
+}
+
+.button-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.slider {
+  appearance: none;
+  width: 100%;
+  height: 5px;
+  border-radius: 2.5px;
+  background: rgba(var(--light), 0.3);
+  outline: none; /* Remove outline */
+  transition: opacity .2s;
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 13px; /* Set a specific slider handle width */
+  height: 13px; /* Slider handle height */
+  background: rgb(var(--light)); /* Green background */
+  border-radius: 10px;
+  border: none;
+  cursor: pointer; /* Cursor on hover */
+  transition: background .2s;
+}
+
+.slider::-moz-range-thumb {
+  width: 13px; /* Set a specific slider handle width */
+  height: 13px; /* Slider handle height */
+  background: rgb(var(--light));
+  border-radius: 10px;
+  border: none;
+  cursor: pointer; /* Cursor on hover */
+  transition: background .2s;
+}
+
+.slider:hover::-webkit-slider-thumb {
+  background: rgb(var(--accent));
+}
+
+.slider:hover::-moz-range-thumb {
+  background: rgb(var(--accent));
+}
+
+.wavesurfer-container {
+  flex: 1;
+  padding: 1em 1em 1em 0.5em;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  background: linear-gradient(90deg, rgba(var(--dark), 0.4), rgba(var(--dark), 0.6));
+}
+
+.wavesurfer-container wave {
+  cursor: pointer;
+}
+
+#waveform {
+  flex: 1;
+}
+
+.preview-container {
+  margin: 1em 0;
+  width: 100%;
+  position: relative;
+}
+
+.preview-container img {
+  position: absolute;
+  width: calc(25vw - 5rem);
+  max-width: 12rem;
+  opacity: 0.85;
+  display: none;
+}
+
+.preview-container img.ychohiyw {
+  left: 102%;
+  top: 40%;
+  transform: rotate(15deg);
+}
+
+.preview-container img.stream {
+  right: 98%;
+  top: -3em;
+}
+
+
+.tracklist {
+  color: rgb(var(--dark));
+  font-size: 2.8vw;
+}
+
+.tracklist ul {
+  margin: 0;
+  padding: 0;
+  border-radius: 0 0 0.35em 0.35em;
+  overflow: hidden;
+  background-color: 
+}
+
+.tracklist ul li {
+  list-style: none;
+  position: relative;
+}
+
+.tracklist ul li input {
+  appearance: none;
+  display: none;
+}
+
+.tracklist ul li label {
+  display: block;
+  padding: 0.35em 1em;
+  cursor: pointer;
+  transition: background-color 0.5s;
+}
+
+.tracklist ul li label {
+  background: rgba(var(--dark), 0.35);
+}
+
+.tracklist ul li button {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  background: linear-gradient(90deg, transparent 0%, rgba(var(--accent2), 1) 2em, rgba(var(--accent2), 1) 100%);
+  border: none;
+  height: 101%;
+  color: rgb(var(--light));
+  transition: opacity 1s ease, color 0.5s;
+  transform: translateX(-100%);
+  white-space: nowrap;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1em;
+  padding: 0em 1em 0em 3em;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.tracklist ul li:hover button {
+  opacity: 1;
+}
+
+.tracklist ul li:hover button:hover {
+  color: rgba(var(--light), 0.6);
+}
+
+.tracklist ul li:nth-child(odd) label{
+  background: rgba(var(--dark), 0.2);
+}
+
+.tracklist ul li:hover label {
+  background: rgba(var(--accent2), 0.4);
+}
+
+.tracklist ul li input:checked + label {
+  background: rgba(var(--accent2), 0.4);
+}
+
+footer {
+  padding: 1em;
+  position: relative;
+}
+
+footer p {
+  color: rgb(var(--light));
+  font-size: 0.6em;
+  margin: 0;
+  float: right;
+  text-align: right;
+}
+
+footer p a {
+  color: rgb(var(--accent));
+}
+
+footer svg {
+  fill: rgb(var(--light));
+  height: 2.5em;
+}
+
 @media (min-width: 768px) {
+
+  .tracklist {
+    font-size: 1em;
+  }
+
   .section-header h2 {
     font-size: 2.2rem;
   }
@@ -233,4 +480,9 @@ main .link-container {
   main .container {
     padding: 0 calc(40vw - 10rem);
   }
+
+  .preview-container img {
+    display: inherit;
+  }
+
 }

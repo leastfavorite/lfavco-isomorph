@@ -57,12 +57,25 @@
       </ul>
     </div>
     <div class="preview-container">
+      <img class="stream" src="resources/images/stream_here.png"></img>
+      <img class="ychohiyw" src="resources/images/ychohiyw.png"></img>
       <div class="waveform-container">
-        <button type="button" aria-label="Play/Pause"></button>
-        <div id="waveform"></div>
+        <div class="waveform-controls">
+          <div class="button-container">
+            <button class="play-button" type="button" aria-label="Play/Pause">
+              <%- include("../svg/play.svg") %>
+              <%- include("../svg/pause.svg") %>
+            </button>
+          </div>
+          <input type="range" min="0" max="100" value="100" class="slider" id="volume-slider">
+        </div>
+        <div class="wavesurfer-container">
+          <div id="waveform"></div>
+        </div>
       </div>
       <div class="now-playing"></div>
       <div class="tracklist">
+        <ul>
         <% tracks = []; %>
         <% tracks.push({name: "surround",  full: "surround."}); %>
         <% tracks.push({name: "subject",   full: "subject, featuring jauntsen and polar."}); %>
@@ -71,14 +84,20 @@
         <% tracks.push({name: "suspend",   full: "suspend, featuring saoirse dream."}); %>
         <% tracks.push({name: "stasis",    full: "stasis, featuring dynastic."}); %>
         <% tracks.forEach(function(track){ %>
-          <input type="radio" name="track" id="<%= track.name %>">
-          <label for="<%= track.name %>"><%= track.full %></label>
+          <li>
+            <input type="radio" name="track" id="<%= track.name %>">
+            <label for="<%= track.name %>"><%= track.full %>
+            </label>
+            <button type="button" class="stem-button">get stems →</button>
+          </li>
         <% }); %>
+        </ul>
       </div>
     </div>
   </div>
 </main>
 <footer>
   <%- include("../svg/logo.svg") %>
-  <p>© Langley Fairhardt Audiovisual. Some rights reserved. View source for this website <a href="https://github.com/leastfavorite/lfavco-isomorph">here</a>.</p>
+  <p>© Langley Fairhardt Audiovisual.<br>View source for this website <a href="https://github.com/leastfavorite/lfavco-isomorph">here</a>.<br>
+  Contact via <a href="https://twitter.com/leastfavorite_">Twitter DM</a> or <a href="mailto:aria@lfav.co">email</a>.</p>
 </footer>
