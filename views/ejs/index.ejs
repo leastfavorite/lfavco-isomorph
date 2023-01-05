@@ -1,3 +1,18 @@
+<div class="transition-background"></div>
+<div class="warning-background hidden"></div>
+<div class="warning-message hidden">
+  <div class="warning-header">
+    <h3 class="glitchable">CRITICAL WARNING.</h3>
+    <button type=button>
+      <%- include("../svg/x.svg") %>
+    </button>
+  </div>
+  <p class="warning glitchable">Stems are not available for the selected song.
+    Please do not try to access them again.</p>
+  <button class="close glitchable" type=button>
+    Close
+  </button>
+</div>
 <header>
   <img class="sunflower" src="resources/images/sunflower.png"></img>
   <div class="container">
@@ -23,10 +38,9 @@
   <img class="border" src="resources/images/banner_border.png"></img>
 </header>
 <main>
-  <div class="background-gradient"></div>
   <div class="container">
     <div class="section-header">
-      <h2>the debut ep. out now.</h2>
+      <h2 class="glitchable">the debut ep. out now.</h2>
     </div>
     <div class="cover-art">
       <div class="background-stripe"></div>
@@ -37,10 +51,10 @@
     </div>
     <div class="link-container">
       <% links = []; %>
+      <% links.push({name: "bandcamp",   href: "https://lfav.bandcamp.com/album/isomorph",                   color: "#629AA9"}); %>
       <% links.push({name: "soundcloud", href: "https://soundcloud.com/leastfavorite/sets/isomorph",         color: "#ff7700"}); %>
       <% links.push({name: "spotify",    href: "https://open.spotify.com/album/4g8UocVkKeBkpVqZFysKgX",      color: "#1DB954"}); %>
       <% links.push({name: "apple",      href: "https://music.apple.com/us/album/isomorph-ep/1656605509",    color: "#FC3C44"}); %>
-      <% links.push({name: "bandcamp",   href: "https://lfav.bandcamp.com/album/isomorph",                   color: "#629AA9"}); %>
       <ul class="links">
         <% links.forEach(function(link){ %>
           <li>
@@ -85,8 +99,8 @@
         <% tracks.push({name: "stasis",    full: "stasis, featuring dynastic."}); %>
         <% tracks.forEach(function(track){ %>
           <li>
-            <input type="radio" name="track" id="<%= track.name %>">
-            <label for="<%= track.name %>"><%= track.full %>
+            <input type="radio" name="track" id="<%= track.name %>" <%= track.name == "surround" ? "checked=\"checked\"" : "" %>>
+            <label class="glitchable" for="<%= track.name %>"><%= track.full %>
             </label>
             <button type="button" class="stem-button">get stems →</button>
           </li>
@@ -98,6 +112,6 @@
 </main>
 <footer>
   <%- include("../svg/logo.svg") %>
-  <p>© Langley Fairhardt Audiovisual.<br>View source for this website <a href="https://github.com/leastfavorite/lfavco-isomorph">here</a>.<br>
+  <p class="glitchable">© Langley Fairhardt Audiovisual.<br>View source <span class="hiii">f</span>or this website <a href="https://github.com/leastfavorite/lfavco-isomorph">here</a>.<br>
   Contact via <a href="https://twitter.com/leastfavorite_">Twitter DM</a> or <a href="mailto:aria@lfav.co">email</a>.</p>
 </footer>

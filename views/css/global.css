@@ -5,6 +5,10 @@
   --accent2: 212, 32, 19;
   --serif: 'Playfair Display', serif;
   --mono: 'Space Mono', monospace;
+
+  --warning-light: 255, 255, 255;
+  --warning-dark: 0, 0, 0;
+  --warning-accent: 255, 64, 0;
 }
 
 @keyframes fade-in {

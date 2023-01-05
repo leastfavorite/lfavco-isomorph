@@ -28,6 +28,7 @@ $('.play-button').addEventListener('click', (evt) => {
     wavesurfer.pause();
   } else {
     $('.play-button').addClass('playing');
+    wavesurfer.backend.ac.resume();
     wavesurfer.play();
   }
 });

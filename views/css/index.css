@@ -26,7 +26,8 @@ header {
 main {
   background-color: rgb(var(--light));
   margin: 0;
-  padding: 0;
+  padding: 0 0 1em;
+  box-shadow: 0px 0px 2px 1px rgb(var(--light));
 }
 
 header h1 {
@@ -149,18 +150,6 @@ main .background-flower {
 }
 
 
-main .background-gradient {
-  width: 100em;
-  height: 100%;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  background: linear-gradient(90deg, rgba(var(--light), 1) 0%, rgba(var(--light), 0) 10%, rgba(var(--light), 0) 90%, rgba(var(--light), 1) 100%);
-  z-index: 50;
-  position: absolute;
-  pointer-events: none;
-}
-
 main {
   position: relative;
   overflow: hidden;
@@ -185,6 +174,10 @@ main .container {
   flex: 1;
   box-sizing: border-box;
   padding: 0 3em;
+}
+
+main .container:before {
+
 }
 
 .section-header p {
@@ -236,10 +229,6 @@ main .link-container {
   position: relative;
   transition: background-color 0.3s;
   cursor: pointer;
-}
-
-.waveform-container button:hover {
-  background: rgb(var(--accent));
 }
 
 .waveform-container button svg {
@@ -311,14 +300,6 @@ main .link-container {
   border: none;
   cursor: pointer; /* Cursor on hover */
   transition: background .2s;
-}
-
-.slider:hover::-webkit-slider-thumb {
-  background: rgb(var(--accent));
-}
-
-.slider:hover::-moz-range-thumb {
-  background: rgb(var(--accent));
 }
 
 .wavesurfer-container {
@@ -415,22 +396,11 @@ main .link-container {
   padding: 0em 1em 0em 3em;
   opacity: 0;
   cursor: pointer;
-}
-
-.tracklist ul li:hover button {
-  opacity: 1;
-}
-
-.tracklist ul li:hover button:hover {
-  color: rgba(var(--light), 0.6);
+  display: none;
 }
 
 .tracklist ul li:nth-child(odd) label{
   background: rgba(var(--dark), 0.2);
-}
-
-.tracklist ul li:hover label {
-  background: rgba(var(--accent2), 0.4);
 }
 
 .tracklist ul li input:checked + label {
@@ -459,6 +429,157 @@ footer svg {
   height: 2.5em;
 }
 
+@keyframes message-flash {
+  0% {
+    opacity: 1;
+  }
+  10% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  30% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  60% {
+    opacity: 1;
+  }
+}
+
+.warning-message {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: fixed;
+  min-width: 400px;
+  width: 60vw;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  background: rgb(var(--warning-dark));
+  border: 2px solid rgb(var(--warning-light));
+  box-shadow: 8px 8px 0px 0px rgb(var(--warning-accent));
+  color: rgb(var(--warning-accent));
+  animation: 1.5s step-end message-flash;
+}
+
+.hidden {
+  display: none;
+}
+
+.warning-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(var(--warning-dark), 0.5);
+  z-index: 999;
+  animation: 0.3s linear fade-in;
+}
+
+.transition-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(var(--warning-dark), 1);
+  transition: opacity 0.3s;
+  opacity: 0;
+  z-index: 999;
+  pointer-events: none;
+}
+
+.noscroll {
+  overflow: hidden !important;
+}
+
+.warning-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0;
+  border-color: rgb(var(--warning-light));
+  border-style: solid;
+  border-width: 0px 0px 2px 0px;
+}
+
+@keyframes header-flash {
+  0% {
+    color: rgb(var(--warning-light));
+  }
+  50% {
+    color: rgb(var(--warning-accent));
+  }
+}
+
+.warning-header h3 {
+  margin: 0;
+  text-align: center;
+  flex: 1;
+  font-weight: normal;
+  animation: 1s step-end infinite header-flash;
+  font-size: calc(1em + 2vw);
+}
+
+.warning-message p {
+  color: rgb(var(--warning-light));
+  font-size: calc(0.75em + 1vw);
+  margin: 1em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.warning-message button.close {
+  background: rgb(var(--warning-dark));
+  border: 2px solid rgb(var(--warning-light));
+  display: inline;
+  color: rgb(var(--warning-accent));
+  font-family: var(--mono);
+  font-size: calc(0.75em + 1vw);
+  margin: 0em auto 1em;
+  text-transform: uppercase;
+  width: 50%;
+  box-shadow: 4px 4px 0px 0px rgb(var(--warning-accent));
+}
+
+.warning-message button.close:hover {
+  box-shadow: 8px 8px 0px 0px rgb(var(--warning-accent));
+  transform: translate(-2px, -2px);
+}
+
+.warning-message button.close:active {
+  box-shadow: 0px 0px 0px 0px rgb(var(--warning-accent));
+  transform: translate(2px, 2px);
+}
+
+.warning-header button {
+  background: none;
+  border-color: rgb(var(--warning-light));
+  border-style: solid;
+  border-width: 0px 0px 0px 2px;
+  cursor: pointer;
+}
+
+.warning-message button svg {
+  fill: rgb(var(--warning-light));
+  width: 2.5em;
+  height: 2.5em;
+}
+
+.warning-message button:hover svg {
+  fill: rgb(var(--warning-accent));
+}
+
 @media (min-width: 768px) {
 
   .tracklist {
@@ -485,4 +606,42 @@ footer svg {
     display: inherit;
   }
 
+
+}
+
+@media (hover: hover) {
+  .waveform-container button:hover {
+    background: rgb(var(--accent));
+  }
+
+  .slider:hover::-webkit-slider-thumb {
+    background: rgb(var(--accent));
+  }
+
+  .slider:hover::-moz-range-thumb {
+    background: rgb(var(--accent));
+  }
+
+  .tracklist ul li:hover button {
+    opacity: 1;
+  }
+
+  .tracklist ul li:hover button:hover {
+    color: rgba(var(--light), 0.6);
+  }
+
+  .tracklist ul li:hover label {
+    background: rgba(var(--accent2), 0.4);
+  }
+
+  .tracklist ul li button {
+    display: inherit;
+  }
+
+}
+
+@media (prefers-reduced-motion) {
+  * {
+    animation: none !important;
+  }
 }
