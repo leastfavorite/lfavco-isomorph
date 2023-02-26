@@ -12,6 +12,10 @@ app.get('/stems', (req, res) => { res.render('stems'); });
 app.use('/resources', express.static('resources'));
 app.get('/resources/*', (req, res) => { res.status(404).send(""); }); 
 
+app.use('/show', (req, res) => {
+    res.redirect(303, "https://resetpresents.com/events/2023/chicago-ft-gabby-start-mgna-crrrta-jacob-geoffrey-more");
+});
+
 // redirect to random song
 app.use('/i-peeked-at-the-html', (req, res) => {
     res.redirect(303, peeked[Math.floor(Math.random() * peeked.length)]);
